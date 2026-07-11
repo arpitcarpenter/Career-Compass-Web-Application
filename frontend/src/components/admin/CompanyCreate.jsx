@@ -1,0 +1,74 @@
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { toast } from 'sonner'
+import { useDispatch } from 'react-redux'
+import Navbar from '../shared/Navbar'
+import { Label } from '../ui/label'
+import { Input } from '../ui/input'
+import { Button } from '../ui/button'
+// 🛠️ Vite Path Fix: '@' ko relative paths me change kiya
+import { COMPANY_API_END_POINT } from '../../utils/constant'
+import { setSingleCompany } from '../../redux/companySlice'
+
+const CompanyCreate = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    // 🛠️ Bug Fix: Initial state ko "" diya taaki controlled input rahe
+    const [companyName, setCompanyName] = useState("");
+
+    const registerNewCompany = async () => {
+        // Validation: Agar user bina naam likhe continue dabaye
+        if (!companyName.trim()) {
+            toast.error("Company name cannot be empty!");
+            return;
+        }
+
+        try {
+            const res = await axios.post(`${COMPANY_API_END_POINT}/register`, { companyName }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true
+            });
+            if (res?.data?.success) {
+                dispatch(setSingleCompany(res.data.company));
+                toast.success(res.data.message || "Company registered successfully!");
+                const companyId = res?.data?.company?._id;
+                navigate(`/admin/companies/${companyId}`);
+            } else {
+                toast.error("Company already exists, please try with a different name.");
+            }
+        } catch (error) {
+            console.log("Error in creating company:", error);
+            toast.error(error.response?.data?.message || "Something went wrong!");
+        }
+    }
+
+    return (
+        <div>
+            <Navbar />
+            <div className='max-w-4xl mx-auto px-4'>
+                <div className='my-10'>
+                    <h1 className='font-bold text-2xl'>Your Company Name</h1>
+                    <p className='text-gray-500'>What would you like to give your company name? You can change this later.</p>
+                </div>
+
+                <Label>Company Name</Label>
+                <Input
+                    type="text"
+                    className="my-2"
+                    value={companyName} // Controlled component setup
+                    placeholder="JobHunt, Microsoft etc."
+                    onChange={(e) => setCompanyName(e.target.value)}
+                />
+                <div className='flex items-center gap-2 my-10'>
+                    <Button variant="outline" onClick={() => navigate("/admin/companies")}>Cancel</Button>
+                    <Button onClick={registerNewCompany}>Continue</Button>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default CompanyCreate;
