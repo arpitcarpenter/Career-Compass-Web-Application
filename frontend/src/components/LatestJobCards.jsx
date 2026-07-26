@@ -37,7 +37,7 @@ const LatestJobCards = ({ job }) => {
                     <p className='text-xs font-medium text-gray-400 uppercase tracking-wider'>{job?.location || "Remote / India"}</p>
                 </div>
 
-                {/* 🔥 THE ABSOLUTE SOLUTION: AI Matcher Tab sirf tabhi dikhega jab user login ho, role student ho, AUR usne resume pipeline set kiya ho! */}
+                {}
                 {user && user.role === 'student' && hasResume && (
                     <div className={`flex items-center gap-1 text-xs px-2.5 py-1 rounded-full font-bold border shadow-sm transition-all ${
                         finalDisplayScore >= 85 

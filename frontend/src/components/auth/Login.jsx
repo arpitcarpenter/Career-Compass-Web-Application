@@ -62,7 +62,7 @@ const Login = () => {
         if (user) {
             navigate("/");
         }
-    // 🛠️ Bug Fix: Added user and navigate hooks into explicit dependency tracker metrics
+    // Bug Fix: Added user and navigate hooks into explicit dependency tracker metrics
     }, [user, navigate]);
 
     return (

@@ -21,7 +21,7 @@ const persistConfig = {
     storage,
 }
 
-// 📦 Yahan hamare saare data modules (including our ML-ready jobSlice) ek sath merge ho rahe hain
+
 const rootReducer = combineReducers({
     auth: authSlice,
     job: jobSlice,

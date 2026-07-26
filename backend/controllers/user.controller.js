@@ -5,7 +5,7 @@ import getDataUri from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
 import axios from "axios";
 import FormData from "form-data"; 
-import { Readable } from "stream"; // 🔥 Node.js standard built-in core module, no install needed!
+import { Readable } from "stream"; 
 
 // ==================== USER REGISTER ====================
 export const register = async (req, res) => {
@@ -171,7 +171,7 @@ export const updateProfile = async (req, res) => {
         const profilePhotoFile = req.files?.profilePhoto ? req.files.profilePhoto[0] : null;
         const resumeFile = req.files?.resume ? req.files.resume[0] : null;
 
-        // 📸 Profile Photo Handler
+        // Profile Photo Handler
         if (profilePhotoFile) {
             const fileUri = getDataUri(profilePhotoFile);
             const cloudResponse = await cloudinary.uploader.upload(fileUri.content, {
@@ -182,7 +182,7 @@ export const updateProfile = async (req, res) => {
             }
         }
 
-/// 📄 Resume PDF Stream Handler (100% Fixed and Viewable)
+/// Resume PDF Stream Handler (100% Fixed and Viewable)
         if (resumeFile) {
             // 🔥 INDUSTRY STANDARD STREAM BUFFER WRAPPER:
             // Yeh loop binary buffer data structure ko directly bina formats corrupt kiye
@@ -215,7 +215,7 @@ export const updateProfile = async (req, res) => {
             }
 
             try {
-                // 🧠 THE AI HANDSHAKE: Pass true original memory buffer to Python Microservice
+                // THE AI HANDSHAKE: Pass true original memory buffer to Python Microservice
                 const form = new FormData();
                 form.append("file", resumeFile.buffer, resumeFile.originalname);
 
@@ -228,7 +228,7 @@ export const updateProfile = async (req, res) => {
 
                 if (parserResponse?.data?.success) {
                     user.profile.resumeText = parserResponse.data.extracted_text;
-                    console.log("🚀 Real text parsed and synced cleanly to Atlas cluster!");
+                    console.log("Real text parsed and synced cleanly to Atlas cluster!");
                 } else {
                     user.profile.resumeText = ""; 
                 }

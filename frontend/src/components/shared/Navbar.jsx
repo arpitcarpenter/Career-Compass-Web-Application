@@ -14,7 +14,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    // 🔥 CONTROLLED DROPDOWN STATES
+    //  CONTROLLED DROPDOWN STATES
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -92,7 +92,7 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <div className='relative' ref={dropdownRef}>
-                                {/* 🔥 Click Target Handler: Direct Trigger on Avatar click */}
+                                {/*  Click Target Handler: Direct Trigger on Avatar click */}
                                 <div onClick={() => setDropdownOpen(!dropdownOpen)} className="cursor-pointer select-none">
                                     <Avatar className="border-2 border-purple-100 hover:border-purple-400 transition-all shadow-sm">
                                         <AvatarImage src={user?.profile?.profilePhoto} alt="User Avatar" />
@@ -102,7 +102,7 @@ const Navbar = () => {
                                     </Avatar>
                                 </div>
 
-                                {/* 🔥 Popover-Style Custom Card Layout Dropdown */}
+                                {/*  Popover-Style Custom Card Layout Dropdown */}
                                 {dropdownOpen && (
                                     <div className="absolute right-0 w-80 rounded-2xl shadow-2xl mt-2 p-4 bg-white border border-gray-100 z-50 transform origin-top-right transition-all duration-200 ease-out">
                                         <div className='flex flex-col gap-3'>

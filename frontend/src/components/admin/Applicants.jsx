@@ -42,7 +42,7 @@ const Applicants = () => {
                     Applicants ({applicants?.applications?.length || 0})
                 </h1>
                 
-                {/* 📊 Data table rendered with specific jobId parameter passed as an active prop */}
+                {/*  Data table rendered with specific jobId parameter passed as an active prop */}
                 <ApplicantsTable jobId={params.id} />
             </div>
         </div>

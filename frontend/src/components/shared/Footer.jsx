@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="mb-4 md:mb-0">
             {/* Theme match logo style */}
             <h2 className="text-xl font-bold text-gray-800">Job Portal</h2>
-            {/* 🛠️ Bug Fix: Dynamic Year calculated automatically */}
+            {}
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} Your Company. All rights reserved.</p>
           </div>
           

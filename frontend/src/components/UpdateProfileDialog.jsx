@@ -45,7 +45,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         formData.append("phoneNumber", input.phoneNumber);
         formData.append("bio", input.bio);
         
-        // 🔥 Gated condition for Appending student-only data payloads
+        //  Gated condition for Appending student-only data payloads
         if (user?.role === 'student') {
             formData.append("skills", input.skills);
             if (resume) {
@@ -138,7 +138,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                 />
                             </div>
 
-                            {/* 🔥 FIX: Skills aur Resume inputs sirf tabhi dikhenge jab user student ho */}
+                            {}
                             {
                                 user?.role === 'student' && (
                                     <>

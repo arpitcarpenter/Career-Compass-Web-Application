@@ -76,7 +76,7 @@ const JobDescription = () => {
 
                 {/* Right Operation Panel: Actions and Cosine Similarity Metrics */}
                 <div className='flex items-center gap-4 w-full md:w-auto justify-between md:justify-end'>
-                    {/* ✅ ML SPECIFICATION EMBED HOOK SLOT */}
+                    {/* ML SPECIFICATION EMBED HOOK SLOT */}
                     {/* Explicit indicator demonstrating real-time document distance matrix matching to user profile */}
                     {user && user.role === 'student' && (
                         <div className={`flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold border shadow-sm ${

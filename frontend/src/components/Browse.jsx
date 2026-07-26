@@ -6,14 +6,14 @@ import { setSearchedQuery } from '@/redux/jobSlice'
 import useGetAllJobs from '@/hooks/useGetAllJobs'
 
 const Browse = () => {
-    // 🛠️ Hook Fix: Invoking hook to load baseline workspace profiles into the data stream
+   
     useGetAllJobs();
     
     const dispatch = useDispatch();
     // Safely extracting global job vectors from the Redux store
     const { allJobs = [], searchedQuery = "" } = useSelector(store => store.job);
 
-    // 📊 ML/Filter Data Process Layer: Filtering items natively based on user text tags or fallback mechanisms
+    //  ML/Filter Data Process Layer: Filtering items natively based on user text tags or fallback mechanisms
     const displayedJobs = allJobs.filter((job) => {
         if (!searchedQuery) return true; // Returns global baseline tokens if search field is resting blank
         

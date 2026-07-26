@@ -5,18 +5,16 @@ import Navbar from '../shared/Navbar'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import CompaniesTable from './CompaniesTable'
-// 🛠️ Vite Path Fixes: '@' ko relative paths me badla
+//  Vite Path Fixes: '@' ko relative paths me badla
 import useGetAllCompanies from '../../hooks/useGetAllCompanies'
 import { setSearchCompanyByText } from '../../redux/companySlice'
 
 const Companies = () => {
-    // Custom hook jo mount hone par automatic recruiter ki saari companies database se le aayega
     useGetAllCompanies();
     const [input, setInput] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    // Jab jab user filter input badlega, tab tab Redux store update hoga aur table automatically filter ho jayegi
     useEffect(() => {
         dispatch(setSearchCompanyByText(input));
     }, [input, dispatch]);
@@ -36,7 +34,7 @@ const Companies = () => {
                         New Company
                     </Button>
                 </div>
-                {/* 📊 Actual Data Table Component */}
+                {/*  Actual Data Table Component */}
                 <CompaniesTable />
             </div>
         </div>

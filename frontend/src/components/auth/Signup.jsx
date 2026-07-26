@@ -9,7 +9,7 @@ import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { RadioGroup } from '../ui/radio-group'
 import { Button } from '../ui/button'
-// 🛠️ Vite Path Fix: Exchanged Webpack '@' path alias tokens with absolute relative paths
+
 import { USER_API_END_POINT } from '../../utils/constant'
 import { setLoading } from '../../redux/authSlice'
 
@@ -78,7 +78,7 @@ const Signup = () => {
         if (user) {
             navigate("/");
         }
-    // 🛠️ Bug Fix: Added user and navigate variables into explicit dependencies arrays
+   
     }, [user, navigate]);
 
     return (

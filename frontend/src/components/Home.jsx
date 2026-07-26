@@ -12,7 +12,7 @@ const Home = () => {
     const { user } = useSelector(store => store.auth);
     const navigate = useNavigate();
 
-    // 🔥 Humesha jobs fetch karo taaki anonymous (new) user ko bhi cards home page par dikhein
+   
     useGetAllJobs();
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Home = () => {
                 <HeroSection />
                 <CategoryCarousel />
                 
-                {/* 🔥 Ab conditional display hata diya, humesha dikhegi latest openings */}
+                {}
                 <LatestJobs />
             </main>
             <Footer />

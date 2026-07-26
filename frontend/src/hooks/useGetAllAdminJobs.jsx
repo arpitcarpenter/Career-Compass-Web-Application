@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-// 🛠️ Vite Fix: Path ko '@' se badal kar relative path me convert kiya
+
 import { setAllAdminJobs } from '../redux/jobSlice'
 import { JOB_API_END_POINT } from '../utils/constant'
 
@@ -20,7 +20,7 @@ const useGetAllAdminJobs = () => {
             }
         }
         fetchAllAdminJobs();
-    }, []); // Empty array ka matlab hai yeh page load hote hi sirf ek baar chalega
+    }, []); 
 }
 
 export default useGetAllAdminJobs;

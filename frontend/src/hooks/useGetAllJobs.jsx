@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-// 🛠️ Vite Path Fix: '@' hataya
+
 import { setAllJobs } from '../redux/jobSlice'
 import { JOB_API_END_POINT } from '../utils/constant'
 
@@ -21,7 +21,7 @@ const useGetAllJobs = () => {
             }
         }
         fetchAllJobs();
-    // 🛠️ Bug Fix: searchedQuery ko dependency me add kiya, taaki search badalne par API wapas call ho!
+    
     }, [searchedQuery, dispatch]) 
 }
 

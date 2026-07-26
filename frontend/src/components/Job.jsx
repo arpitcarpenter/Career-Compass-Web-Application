@@ -10,7 +10,7 @@ const Job = ({ job }) => {
     const navigate = useNavigate();
     const { user } = useSelector(store => store.auth);
     
-    // 🔥 FIX 1: Local state for active bookmark tracking
+    //Local state for active bookmark tracking
     const [isSaved, setIsSaved] = useState(false);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const Job = ({ job }) => {
         setIsSaved(isAlreadySaved);
     }, [job?._id]);
 
-    // 🔥 FIX 2: Universal Bookmark Handler Logic
+    //  Universal Bookmark Handler Logic
     const bookmarkHandler = (e) => {
         e.preventDefault(); 
         e.stopPropagation(); 
@@ -28,15 +28,15 @@ const Job = ({ job }) => {
         let savedJobs = JSON.parse(localStorage.getItem('savedJobs')) || [];
 
         if (isSaved) {
-            // Un-bookmark (list se bahar nikal do)
+           
             savedJobs = savedJobs.filter(savedJobId => savedJobId !== job?._id);
             setIsSaved(false);
             console.log("❌ Job removed from bookmarks!");
         } else {
-            // Bookmark (list me push kar do)
+            
             savedJobs.push(job?._id);
             setIsSaved(true);
-            console.log("🔥 Job added to bookmarks!");
+            console.log(" Job added to bookmarks!");
         }
 
         localStorage.setItem('savedJobs', JSON.stringify(savedJobs));
@@ -75,7 +75,7 @@ const Job = ({ job }) => {
                         </div>
                     )}
                     
-                    {/* 🔥 FIX 3: Icon button me conditional classes aur click handler lagaya */}
+                    {}
                     <Button 
                         onClick={bookmarkHandler}
                         variant="outline" 
@@ -131,7 +131,7 @@ const Job = ({ job }) => {
                     View Details
                 </Button>
                 
-                {/* 🔥 FIX 4: "Save For Later" button ko bhi dynamic state se bind kiya */}
+                {}
               <Button 
                     onClick={bookmarkHandler}
                     className={`rounded-xl font-semibold text-sm px-4 py-2 shadow-sm transition-all duration-300 ${

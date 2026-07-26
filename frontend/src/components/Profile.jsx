@@ -9,24 +9,24 @@ import AppliedJobTable from '../components/AppliedJobTable'
 import UpdateProfileDialog from './UpdateProfileDialog'
 import { useSelector } from 'react-redux'
 import useGetAppliedJobs from '@/hooks/useGetAppliedJobs'
-import Job from './Job' // 🔥 IMPORTANT: Job card component import kiya check clusters display ke liye
+import Job from './Job' 
 
 const Profile = () => {
     useGetAppliedJobs();
     const [open, setOpen] = useState(false);
     const { user } = useSelector(store => store.auth);
     
-    // 🔥 FIX 1: Redux store se allJobs ko fetch kiya tracking map setup ke liye
+   
     const { allJobs } = useSelector(store => store.job);
     
-    // 🔥 FIX 2: Local active state trackers tabs swapping ke liye
+    
     const [activeTab, setActiveTab] = useState('applied');
     const [savedJobs, setSavedJobs] = useState([]);
 
-    // 🔥 FIX 3: LocalStorage hooks map, jo dynamic real-time saved filters create karega
+  
     useEffect(() => {
         const savedJobIds = JSON.parse(localStorage.getItem('savedJobs')) || [];
-        // Redux ki saari jobs me se wahi filtered out koli jinka ID match krta h
+     
         const filtered = allJobs.filter(job => savedJobIds.includes(job?._id));
         setSavedJobs(filtered);
     }, [allJobs]);
@@ -118,7 +118,7 @@ const Profile = () => {
                 )}
             </div>
 
-            {/* 🔥 FIX 4: INTERACTIVE DYNAMIC MULTI-TAB ENGINE CONTAINER */}
+            {/* INTERACTIVE DYNAMIC MULTI-TAB ENGINE CONTAINER */}
             {user?.role === 'student' && (
                 <div className='max-w-4xl mx-auto mt-8 px-2 sm:px-0'>
                     {/* Tab Selection Row Buttons Grid */}
@@ -165,7 +165,7 @@ const Profile = () => {
                                                 <p className="text-gray-400 text-sm mt-1">Jobs bookmark karo taaki wo yahan live showcase ho sakein.</p>
                                             </div>
                                         ) : (
-                                            /* 🔥 Beautiful Grid system mapping your original <Job /> components seamlessly */
+                                            /*  Beautiful Grid system mapping your original <Job /> components seamlessly */
                                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in'>
                                                 {
                                                     savedJobs.map((job) => (

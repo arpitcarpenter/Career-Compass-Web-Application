@@ -19,7 +19,7 @@ const filterData = [
 ]
 
 const FilterCard = () => {
-    // 🔥 FIX 1: State ko ek object bana diya jo har category ka filter alag se yaad rakhega
+    
     const [selectedFilters, setSelectedFilters] = useState({
         Location: "",
         Industry: "",
@@ -28,17 +28,16 @@ const FilterCard = () => {
     
     const dispatch = useDispatch();
 
-    // 🔥 FIX 2: Jis category ka button dabega, sirf usi ki key update hogi baaki wese hi rahenge
+    
     const changeHandler = (category, value) => {
         setSelectedFilters(prev => ({
             ...prev,
-            [category]: prev[category] === value ? "" : value // Agar dubara dabaye to uncheck (optional) ho jaye
+            [category]: prev[category] === value ? "" : value 
         }));
     }
 
     useEffect(() => {
-        // 🔥 FIX 3: Teeno filters ko combine karke string banayenge taaki backend/redux query pipeline crash na ho
-        // Agar tumne Mumbai aur FullStack select kiya h, toh ye query "Mumbai FullStack" bhejega
+        
         const combinedQuery = Object.values(selectedFilters)
             .filter(val => val !== "")
             .join(" ");
@@ -63,7 +62,7 @@ const FilterCard = () => {
                                     data.array.map((item, idx) => {
                                         const itemId = `id${index}-${idx}`;
                                         
-                                        // 🔥 FIX 4: Strict check ki kya is particular category me ye item selected hai?
+                                        
                                         const isSelected = selectedFilters[data.filterType] === item;
 
                                         return (

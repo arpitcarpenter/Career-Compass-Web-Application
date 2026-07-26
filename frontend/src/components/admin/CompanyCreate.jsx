@@ -7,18 +7,18 @@ import Navbar from '../shared/Navbar'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
-// 🛠️ Vite Path Fix: '@' ko relative paths me change kiya
+
 import { COMPANY_API_END_POINT } from '../../utils/constant'
 import { setSingleCompany } from '../../redux/companySlice'
 
 const CompanyCreate = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    // 🛠️ Bug Fix: Initial state ko "" diya taaki controlled input rahe
+    
     const [companyName, setCompanyName] = useState("");
 
     const registerNewCompany = async () => {
-        // Validation: Agar user bina naam likhe continue dabaye
+       
         if (!companyName.trim()) {
             toast.error("Company name cannot be empty!");
             return;

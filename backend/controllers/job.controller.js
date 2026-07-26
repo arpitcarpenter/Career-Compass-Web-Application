@@ -23,17 +23,17 @@ export const postJob = async (req, res) => {
             requirementsArray = requirements;
         }
 
-        // 🔥 FIX 1: NaN Crash Protection for Salary field
-        // Agar string parse "12 LPA" NaN banti h, toh pure raw text string ko database compatible clean number me convert karo ya binary string fallback do
+        //NaN Crash Protection for Salary field
+        
         let parsedSalary = Number(salary);
         if (isNaN(parsedSalary)) {
-            // "12 LPA" me se digit extraction regex pipeline layer
+        
             const extracted = salary.replace(/[^0-9]/g, '');
             parsedSalary = extracted ? Number(extracted) : 0; 
         }
 
         if (parsedSalary <= 0) {
-            parsedSalary = 1; // Fallback to avoid strict mongoose model schema validation block
+            parsedSalary = 1;
         }
 
         // Create the job record and link it to the company and user models
@@ -56,7 +56,7 @@ export const postJob = async (req, res) => {
             success: true
         });
     } catch (error) {
-        console.error("Post Job Error Details:", error); // 🔥 Print complete error log track instead of just message
+        console.error("Post Job Error Details:", error); 
         return res.status(500).json({
             message: "Internal server error while posting the job.",
             error: error.message,
@@ -141,8 +141,8 @@ export const getAllJobs = async (req, res) => {
             path: "company"
         }).sort({ createdAt: -1 });
 
-        // 2. 🔥 REAL-TIME ML INJECTION HANDSHAKE LOOP
-        // Agar bacha logged-in hai aur database me jobs hain, toh pipeline activate karo
+        // 2. REAL-TIME ML INJECTION HANDSHAKE LOOP
+    
         if (userId && jobs.length > 0) {
             try {
                 // Dynamically Mongoose dynamically User compile mapping state check safely
@@ -181,7 +181,7 @@ export const getAllJobs = async (req, res) => {
                             // Synchronize mathematical percentages back to user response object array without filtering out entries
                             const jobsWithRealScores = jobs.map(job => {
                                 const jobObj = job.toObject();
-                                // Target real computed percentage bindings injection layer
+                            
                                 jobObj.matchScore = scoresMap[job._id.toString()] !== undefined ? scoresMap[job._id.toString()] : 0;
                                 return jobObj;
                             });
@@ -297,15 +297,14 @@ export const getAIRecommendations = async (req, res) => {
 
         const pythonServiceUrl = "http://127.0.0.1:5000/api/recommend";
         
-        // Python server ko hit maaro
+        
         const pythonResponse = await axios.post(pythonServiceUrl, {
             skills: combinedStudentProfileText,
             jobs: jobsPayload
         });
 
         if (pythonResponse?.data?.success) {
-            // 🔥 FIX: Sirf 15% se zyada match wali jobs hi dikhao. 
-            // Agar score 0 hoga toh filter bahar nikal dega.
+           
            const rawRecommendations = pythonResponse.data.recommendations || [];
 
             // Structural verification rule safely bounded

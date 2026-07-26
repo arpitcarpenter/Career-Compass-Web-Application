@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom' // 🔥 URL se ID catch karne ke liye useParams add kiya
-import axios from "axios"; // Standard api call variable used consistently below
+import { useNavigate, useParams } from 'react-router-dom' 
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'sonner'
 import { Loader2 } from 'lucide-react'
@@ -25,13 +25,13 @@ const PostJob = () => {
     });
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const { id } = useParams(); // 🔥 Dynamic edit route checker
+    const { id } = useParams(); 
     const isEditMode = !!id;
 
-    // Fetching the list of available companies from Redux state management layer
+    
     const { companies = [] } = useSelector(store => store.company);
 
-    // 🔥 DYNAMIC POPULATE HOOK: Agar URL me ID h (Edit Mode), toh database se data automatic khinch layega
+   
     useEffect(() => {
         if (isEditMode) {
             const fetchJobDetails = async () => {
@@ -83,7 +83,7 @@ const PostJob = () => {
             setLoading(true);
             let res;
             
-            // 🔥 SMART ROUTING ENGINE: Checking state vectors to dispatch update or creation context
+           
             if (isEditMode) {
                 res = await axios.put(`${JOB_API_END_POINT}/update/${id}`, input, {
                     headers: { 'Content-Type': 'application/json' },
@@ -113,7 +113,7 @@ const PostJob = () => {
             <Navbar />
             <div className='flex items-center justify-center min-h-[calc(100vh-80px)] my-5 px-4'>
                 <form onSubmit={submitHandler} className='p-8 w-full max-w-4xl border border-gray-200 shadow-lg rounded-md bg-white'>
-                    {/* 🔥 Dynamic Header Layout */}
+                    {/*  Dynamic Header Layout */}
                     <h1 className='text-2xl font-bold text-gray-800 mb-6 text-center sm:text-left'>
                         {isEditMode ? "Modify Job Parameters Matrix" : "Post A New Opportunity"}
                     </h1>

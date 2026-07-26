@@ -9,7 +9,7 @@ const Jobs = () => {
     const { allJobs, searchedQuery } = useSelector(store => store.job);
     const [filterJobs, setFilterJobs] = useState(allJobs || []);
 
-    // 🔍 Real-time Search Matrix Matching Loop
+    //  Real-time Search Matrix Matching Loop
     useEffect(() => {
         if (searchedQuery) {
             const filteredJobs = (allJobs || []).filter((job) => {

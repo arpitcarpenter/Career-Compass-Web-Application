@@ -11,6 +11,6 @@ export const JOB_API_END_POINT = `${BASE_URL}/api/v1/job`;
 export const APPLICATION_API_END_POINT = `${BASE_URL}/api/v1/application`;
 export const COMPANY_API_END_POINT = `${BASE_URL}/api/v1/company`;
 
-// ✅ MACHINE LEARNING SPECIALIZATION SLOT
+// MACHINE LEARNING SPECIALIZATION SLOT
 // This constant provides a direct handshake gate between React UI hooks and the NLP Vectorizer Microservice
 export const ML_API_END_POINT = `${ML_BASE_URL}/api/v1/recommend`;

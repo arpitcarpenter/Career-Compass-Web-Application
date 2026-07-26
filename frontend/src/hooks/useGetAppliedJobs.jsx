@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import axios from "axios"
-// 🛠️ Vite Path Fix: '@' ko hata kar relative paths jode
+
 import { setAllAppliedJobs } from "../redux/jobSlice"
 import { APPLICATION_API_END_POINT } from "../utils/constant"
 
@@ -21,7 +21,7 @@ const useGetAppliedJobs = () => {
             }
         }
         fetchAppliedJobs();
-    }, [dispatch]); // Dependency array me dispatch add kiya best practices ke liye
+    }, [dispatch]);
 };
 
 export default useGetAppliedJobs;

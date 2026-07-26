@@ -7,13 +7,11 @@ import { Avatar, AvatarImage } from '../ui/avatar'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 
 const CompaniesTable = () => {
-    // 🛠️ Safe Fallback: Agar store khali ho toh empty array default set rahega
     const { companies = [], searchCompanyByText } = useSelector(store => store.company);
     const [filterCompany, setFilterCompany] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        // 🛠️ Crash Fix: Safe check kiya taaki length check par null pointer error na aaye
         const filteredCompany = companies?.length > 0 && companies.filter((company) => {
             if (!searchCompanyByText) {
                 return true;
@@ -45,7 +43,7 @@ const CompaniesTable = () => {
                             </TableRow>
                         ) : (
                             filterCompany?.map((company) => (
-                                // 🛠️ Bug Fix: Standard Shadcn TableRow use kiya aur unique 'key' add ki
+                                
                                 <TableRow key={company?._id || Math.random()}>
                                     <TableCell>
                                         <Avatar>
@@ -56,7 +54,7 @@ const CompaniesTable = () => {
                                         {company?.name}
                                     </TableCell>
                                     <TableCell>
-                                        {/* 🛠️ Crash Protection: Date agar undefined ho toh code crash nahi hoga */}
+                                        {}
                                         {company?.createdAt ? company.createdAt.split("T")[0] : "N/A"}
                                     </TableCell>
                                     <TableCell className="text-right cursor-pointer">

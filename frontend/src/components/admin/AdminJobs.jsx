@@ -5,18 +5,16 @@ import Navbar from '../shared/Navbar'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button' 
 import AdminJobsTable from './AdminJobsTable'
-// 🛠️ Vite Path Fixes: '@' ko relative paths me badla
+
 import useGetAllAdminJobs from '../../hooks/useGetAllAdminJobs'
 import { setSearchJobByText } from '../../redux/jobSlice'
 
 const AdminJobs = () => {
-  // Custom hook jo mount hote hi recruiter ke saare posted jobs automatic database se le aayega
   useGetAllAdminJobs();
   const [input, setInput] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Jab jab user search query change karega, tab tab Redux store live update hoga aur table component filtered jobs dikhayega
   useEffect(() => {
     dispatch(setSearchJobByText(input));
   }, [input, dispatch]);
@@ -36,7 +34,7 @@ const AdminJobs = () => {
             New Jobs
           </Button>
         </div>
-        {/* 📊 Actual Admin Jobs Data Table Component */}
+        {/*  Actual Admin Jobs Data Table Component */}
         <AdminJobsTable />
       </div>
     </div>

@@ -14,7 +14,7 @@ import AdminJobs from "./components/admin/AdminJobs";
 import PostJob from './components/admin/PostJob';
 import Applicants from './components/admin/Applicants';
 import ProtectedRoute from './components/admin/ProtectedRoute';
-import StudentProtectedRoute from './components/auth/StudentProtectedRoute'; // 🔥 New Student Guard Imported
+import StudentProtectedRoute from './components/auth/StudentProtectedRoute'; 
 import AIRecommendations from './components/AIRecommendations';
 
 const appRouter = createBrowserRouter([
@@ -30,7 +30,7 @@ const appRouter = createBrowserRouter([
     path: '/signup',
     element: <Signup />
   },
-  // 🔐 PROTECTED STUDENT ROUTE LOCKS: Ab bina login koi yahan ghusa toh sidhe login page pe redirection hit hoga!
+  
   {
     path: "/jobs",
     element: <StudentProtectedRoute><Jobs /></StudentProtectedRoute>

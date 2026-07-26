@@ -16,7 +16,7 @@ const HeroSection = () => {
         navigate("/browse");
     }
 
-    // 🛠️ UX Bug Fix: Enabled native input keyboard listeners to trigger execution vector on "Enter" click
+    
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             searchJobHandler();

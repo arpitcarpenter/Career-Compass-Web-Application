@@ -29,7 +29,7 @@ const ApplicantsTable = () => {
         }
     }
 
-    // 🚀 Smart AI Ranking Logic: Sorting candidates from highest matching percentage to lowest
+    //  Smart AI Ranking Logic: Sorting candidates from highest matching percentage to lowest
     const sortedApplications = applicants?.applications ? [...applicants.applications].sort((a, b) => {
         const scoreA = a?.matchScore || 0;
         const scoreB = b?.matchScore || 0;
@@ -47,7 +47,7 @@ const ApplicantsTable = () => {
                         <TableHead className="font-semibold text-gray-700">Contact</TableHead>
                         <TableHead className="font-semibold text-gray-700">Resume Link</TableHead>
                         
-                        {/* 🔥 NEW COMPONENT: Premium Intelligent Machine Learning Match Metric Column */}
+                        {/*  NEW COMPONENT: Premium Intelligent Machine Learning Match Metric Column */}
                         <TableHead className="font-semibold text-[#6A38C2] bg-purple-50/50 flex items-center gap-1.5">
                             <BrainCircuit className="h-4 w-4 text-[#6A38C2]" />
                             <span>AI Match Score</span>
@@ -92,7 +92,7 @@ const ApplicantsTable = () => {
                                             }
                                         </TableCell>
 
-                                        {/* 🚀 Dynamic UI rendering for the calculated Cosine Similarity AI percentage badges */}
+                                        {/*  Dynamic UI rendering for the calculated Cosine Similarity AI percentage badges */}
                                         <TableCell>
                                             <div className="flex items-center gap-2">
                                                 <div className="w-16 bg-gray-200 rounded-full h-2 overflow-hidden hidden sm:block">

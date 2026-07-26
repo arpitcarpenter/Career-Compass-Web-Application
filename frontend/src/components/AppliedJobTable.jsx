@@ -18,7 +18,7 @@ const AppliedJobTable = () => {
                         <TableHead className="font-semibold text-gray-700 w-[120px]">Applied Date</TableHead>
                         <TableHead className="font-semibold text-gray-700">Job Profile & Track</TableHead>
                         <TableHead className="font-semibold text-gray-700">Organization</TableHead>
-                        {/* 🧠 ML Integration Anchor */}
+                        {/*  ML Integration Anchor */}
                         <TableHead className="font-semibold text-gray-700 text-center">AI Match Score</TableHead>
                         <TableHead className="text-right font-semibold text-gray-700 w-[150px]">Pipeline Status</TableHead>
                     </TableRow>
@@ -35,7 +35,7 @@ const AppliedJobTable = () => {
                             allAppliedJobs.map((appliedJob) => {
                                 const status = appliedJob?.status?.toLowerCase() || 'pending';
                                 
-                                // 🔥 FIX 1: Real ML Score Matcher with deterministic fallback (Processing hata kar 75-98% solid match score matrix lagaya)
+                                
                                 const mockScore = appliedJob?.job?._id ? (parseInt(appliedJob.job._id.substring(18, 24), 16) % 23) + 76 : 85;
                                 const finalScore = appliedJob?.matchScore || appliedJob?.job?.matchScore || mockScore;
                                 
@@ -50,18 +50,18 @@ const AppliedJobTable = () => {
                                         <TableCell className="text-gray-600 font-medium">
                                             {appliedJob?.job?.company?.name || "N/A"}
                                         </TableCell>
-                                        {/* 📊 Neural Scoring Metric Display Layer */}
+                                        {/*  Neural Scoring Metric Display Layer */}
                                         <TableCell className="text-center font-mono text-sm font-bold text-indigo-600">
                                             {finalScore}%
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            {/* 🔥 THE PREMIUM LOOK: AI-template vibes saaf! Modern slate borders aur dynamic subtle colored text */}
+                                            {/*  THE PREMIUM LOOK: AI-template vibes saaf! Modern slate borders aur dynamic subtle colored text */}
                                             <Badge className={`px-2.5 py-1 rounded-md text-xs font-semibold tracking-wide border bg-white shadow-none transition-all ${
                                                 status === "accepted" ? 'text-emerald-600 border-emerald-200/80 bg-emerald-50/10' : 
                                                 status === 'rejected' ? 'text-rose-600 border-rose-200/80 bg-rose-50/10' : 
                                                 'text-amber-600 border-amber-200/80 bg-amber-50/10'
                                             }`}>
-                                                {/* Chhota side-dot jo real premium systems me hota h */}
+                                                {}
                                                 <span className={`h-1.5 w-1.5 rounded-full mr-1.5 inline-block ${
                                                     status === "accepted" ? 'bg-emerald-500' : 
                                                     status === "rejected" ? 'bg-rose-500' : 

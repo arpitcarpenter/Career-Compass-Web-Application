@@ -24,13 +24,13 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Allowed frontend origins (Local development + Vercel Deployment)
+//  Allowed frontend origins (Local development + Vercel Deployment)
 const allowedOrigins = [
     "http://localhost:5173",
     "https://job-portal-frontend-neon.vercel.app"
 ];
 
-// ✅ CORS configuration with local testing support
+//  CORS configuration with local testing support
 const corsOptions = {
     origin: function (origin, callback) {
         console.log("🔍 Incoming request origin:", origin);
@@ -45,21 +45,21 @@ const corsOptions = {
     credentials: true
 };
 
-// ✅ Apply CORS before routes
+//  Apply CORS before routes
 app.use(cors(corsOptions));
 
-// ✅ Middlewares
+//  Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// ✅ API Routes
+//  API Routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
-// ✅ Start server
+//  Start server
 const PORT = process.env.PORT || 8000; // Hum isse 8000 port par default rakhenge hamare env ke mutabik
 
 app.listen(PORT, () => {

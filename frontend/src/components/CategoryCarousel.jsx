@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Button } from './ui/button';
 import { setSearchedQuery } from '@/redux/jobSlice';
 
-// 🧠 ML Focused Track Descriptors: Enriched array displaying domains matching data science stacks
+//  ML Focused Track Descriptors: Enriched array displaying domains matching data science stacks
 const categories = [
     "Machine Learning Engineer",
     "Data Scientist",
@@ -32,7 +32,7 @@ const CategoryCarousel = () => {
                 <CarouselContent className="-ml-2 md:-ml-4">
                     {
                         categories.map((cat, index) => (
-                            // 🛠️ Bug Fix: Rectified standard tailwind class alias string from "lg-basis" to "lg:basis"
+                            
                             <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 flex justify-center">
                                 <Button 
                                     onClick={() => searchJobHandler(cat)} 

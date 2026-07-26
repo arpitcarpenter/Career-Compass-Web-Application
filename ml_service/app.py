@@ -10,7 +10,7 @@ import re
 app = Flask(__name__)
 CORS(app)
 
-# 🛠️ GLOBAL TECH KEYWORDS (For Job Description Parsing Base Context)
+#  GLOBAL TECH KEYWORDS (For Job Description Parsing Base Context)
 TECH_KEYWORDS = [
     'react', 'node', 'mongodb', 'express', 'javascript', 'html', 'css', 
     'python', 'java', 'c++', 'c', 'sql', 'mysql', 'dsa', 'data structures', 
@@ -44,29 +44,29 @@ def parse_resume():
             
         file = request.files['file']
         
-        # Binary bytes ko memory base block me cleanly load karo safely
+       
         file_bytes = file.read()
         f = io.BytesIO(file_bytes)
         
         reader = PdfReader(f)
         extracted_text = ""
         
-        # Pure resume text ko completely read karo bina kisi custom filter k noise k
+     
         for page in reader.pages:
             page_text = page.extract_text()
             if page_text:
                 extracted_text += page_text + "\n"
         
-        # 🚨 FINAL ATTESTATION RULE: Faltu spacing aur symbols ko basic clean karo bus
+      
         clean_raw_text = re.sub(r'\s+', ' ', extracted_text).strip()
         
         print("--- EXTRACTED TEXT REAL PREVIEW ---")
-        print(clean_raw_text[:200]) # Terminal pe preview dekhne k liye line daal di h
+        print(clean_raw_text[:200]) 
         
         return jsonify({
             "success": True,
             "message": "Resume parsed via Python natively.",
-            "extracted_text": clean_raw_text # Direct raw text bhejo taaki database me tera naam aur projects save ho ske
+            "extracted_text": clean_raw_text 
         })
     except Exception as e:
         print("Parsing failure stream index error:", str(e))

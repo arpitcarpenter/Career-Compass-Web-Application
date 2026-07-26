@@ -8,13 +8,13 @@ import Navbar from '../shared/Navbar'
 import { Button } from '../ui/button'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
-// 🛠️ Vite Path Fixes: '@' ko relative path me convert kiya
+
 import { COMPANY_API_END_POINT } from '../../utils/constant'
 import useGetCompanyById from '../../hooks/useGetCompanyById'
 
 const CompanySetup = () => {
     const params = useParams();
-    // Custom hook to fetch data via API on page load
+   
     useGetCompanyById(params.id);
 
     const [input, setInput] = useState({
@@ -69,7 +69,7 @@ const CompanySetup = () => {
     }
 
     useEffect(() => {
-        // 🛠️ Crash Bug Fixed: singleCompany ke saath optional chaining (?.) lagayi taaki null state par data break na ho
+       
         setInput({
             name: singleCompany?.name || "",
             description: singleCompany?.description || "",

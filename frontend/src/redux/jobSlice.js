@@ -9,7 +9,7 @@ const jobSlice = createSlice({
         searchJobByText: "",
         allAppliedJobs: [],
         searchedQuery: "",
-        // 🚀 ML Integration Pipelines
+        //  ML Integration Pipelines
         recommendedJobs: [],
         recommendationLoading: false,
     },
@@ -33,7 +33,7 @@ const jobSlice = createSlice({
         setSearchedQuery: (state, action) => {
             state.searchedQuery = action.payload;
         },
-        // 🚀 ML Actions for Recommendation Engine
+        //  ML Actions for Recommendation Engine
         setRecommendedJobs: (state, action) => {
             state.recommendedJobs = action.payload;
         },

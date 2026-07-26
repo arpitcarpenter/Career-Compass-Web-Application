@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-// 🛠️ Vite Path Fix: '@' ko relative paths se badla
+
 import { setSingleCompany } from '../redux/companySlice'
 import { COMPANY_API_END_POINT } from '../utils/constant'
 
@@ -21,7 +21,7 @@ const useGetCompanyById = (companyId) => {
             }
         }
         
-        // Sirf tabhi call karenge jab companyId valid ho
+        
         if (companyId) {
             fetchSingleCompany();
         }

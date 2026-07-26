@@ -12,7 +12,7 @@ const LatestJobs = () => {
         const fetchLatestRealTimeJobs = async () => {
             try {
                 setLoading(true);
-                // 🔥 DIRECT SECURE WIRE HIT: Hits our strict authenticated endpoint
+                // DIRECT SECURE WIRE HIT: Hits our strict authenticated endpoint
                 const res = await axios.get(`${JOB_API_END_POINT}/get`, {
                     withCredentials: true // Transmits JWT token cleanly to inject actual matchScores
                 });

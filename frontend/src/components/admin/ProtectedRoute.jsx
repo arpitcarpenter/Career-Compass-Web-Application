@@ -12,7 +12,7 @@ const ProtectedRoute = ({ children }) => {
         if (user === null || user?.role !== 'recruiter') {
             navigate("/");
         }
-    // 🛠️ Bug Fix: Added explicit dependencies to maintain state accuracy during render cycles
+    // Bug Fix: Added explicit dependencies to maintain state accuracy during render cycles
     }, [user, navigate]);
 
     return (
