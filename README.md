@@ -3,7 +3,7 @@
 > Empowering careers through connections — where candidate talent seamlessly meets recruiter opportunity through Intelligent Machine Learning Pipelines.
 
 ![MERN Stack](https://img.shields.io/badge/Stack-MERN-blue?style=for-the-badge&logo=mongodb)
-![Python ML Microservice](https://img.shields.io/badge/ML Core-Python%20%2F%20Flask-green?style=for-the-badge&logo=python)
+![Python ML Microservice](https://img.shields.io/badge/ML%20Core-Python%20%2F%20Flask-green?style=for-the-badge&logo=python)
 ![Scikit-Learn](https://img.shields.io/badge/Algorithm-TF--IDF%20%26%20Cosine%20Similarity-orange?style=for-the-badge&logo=scikit-learn)
 ![JWT Auth](https://img.shields.io/badge/Security-JWT%20Protected-red?style=for-the-badge)
 
